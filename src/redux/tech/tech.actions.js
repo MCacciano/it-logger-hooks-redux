@@ -52,11 +52,7 @@ export const deleteTech = id => async dispatch => {
     setLoading();
 
     await fetch(`/techs/${id}`, {
-      method: 'DELETE',
-      body: JSON.stringify(id),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      method: 'DELETE'
     });
 
     dispatch({
