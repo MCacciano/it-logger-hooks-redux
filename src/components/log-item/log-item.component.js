@@ -4,13 +4,13 @@ import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 const LogItem = ({ log }) => {
-  const { id, attention, tech, date } = log;
+  const { id, attention, tech, date, message } = log;
 
   return (
     <li className='collection-item'>
       <div>
         <a href='#edit-log-modal' className={`modal-trigger ${attention ? 'red-text' : 'blue-text'}`}>
-          {log.message}
+          {message}
         </a>
         <br />
         <span className='grey-text'>
