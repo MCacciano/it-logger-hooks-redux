@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteLog, setCurrentLog } from '../../actions/logActions';
+import { deleteLog, setCurrentLog } from '../../redux/log/log.actions';
 import Moment from 'react-moment';
 
 import M from 'materialize-css/dist/js/materialize.min.js';

@@ -13,13 +13,6 @@
       "attention": false,
       "tech": "John Doe",
       "date": "2019-05-31T16:18:04.245Z"
-    },
-    {
-      "id": 3,
-      "message": "Fixed this text",
-      "attention": false,
-      "tech": "John Doe",
-      "date": "2020-01-04T17:34:49.287Z"
     }
   ],
   "techs": [
@@ -42,6 +35,16 @@
       "firstName": "Mozzey",
       "lastName": "Magick",
       "id": 4
+    },
+    {
+      "firstName": "Ksee",
+      "lastName": "Jones",
+      "id": 5
+    },
+    {
+      "firstName": "Erik",
+      "lastName": "Cootie",
+      "id": 6
     }
   ]
 }

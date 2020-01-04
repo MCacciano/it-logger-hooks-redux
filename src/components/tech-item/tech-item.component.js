@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { deleteTech } from '../../redux/tech/tech.actions';
 
-const TechItem = ({ tech: { firstName, lastName } }) => {
+const TechItem = ({ tech: { firstName, lastName, id }, deleteTech }) => {
   return (
     <li className='collection-item'>
       <div>
         {firstName} {lastName}
-        <a href='#!' className='secondary-content'>
+        <a href='#!' onClick={() => deleteTech(id)} className='secondary-content'>
           <i className='material-icons grey-text'>delete</i>
         </a>
       </div>
@@ -15,7 +17,12 @@ const TechItem = ({ tech: { firstName, lastName } }) => {
 };
 
 TechItem.propTypes = {
-  tech: PropTypes.object.isRequired
+  tech: PropTypes.object.isRequired,
+  deleteTech: PropTypes.func.isRequired
 };
 
-export default TechItem;
+const mapDispatchToProps = dispatch => ({
+  deleteTech: id => dispatch(deleteTech(id))
+});
+
+export default connect(null, mapDispatchToProps)(TechItem);

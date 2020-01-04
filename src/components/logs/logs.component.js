@@ -5,7 +5,7 @@ import Preloader from '../layout/preloader/preloader.component';
 
 // redux
 import { connect } from 'react-redux';
-import { getLogs } from '../../actions/logActions';
+import { getLogs } from '../../redux/log/log.actions';
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
   useEffect(() => {
