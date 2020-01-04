@@ -15,25 +15,11 @@
       "date": "2019-05-31T16:18:04.245Z"
     },
     {
-      "message": "1122 wireless down",
-      "attention": true,
-      "tech": "Sara Wilson",
-      "date": "2019-05-31T15:46:48.690Z",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "message": "Workstation 026 is up and running",
+      "id": 3,
+      "message": "Fixed this text",
       "attention": false,
-      "tech": "Sara Wilson",
-      "date": "2019-05-31T19:57:35.544Z"
-    },
-    {
-      "message": "This should work now",
-      "attention": true,
-      "tech": "Mozzey Magick",
-      "date": "2020-01-04T16:47:58.625Z",
-      "id": 5
+      "tech": "John Doe",
+      "date": "2020-01-04T17:34:49.287Z"
     }
   ],
   "techs": [

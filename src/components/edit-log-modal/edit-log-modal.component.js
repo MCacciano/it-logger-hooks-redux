@@ -1,18 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { updateLog } from '../../actions/logActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import styles from './edit-log-modal.module.css';
 
-const EditLogModal = () => {
+const EditLogModal = ({ current, updateLog }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState('');
+
+  useEffect(() => {
+    if (current) {
+      setMessage(current.message);
+      setAttention(current.attention);
+      setTech(current.tech);
+    }
+  }, [current]);
 
   const onSubmit = e => {
     if (message === '' || tech === '') {
       M.toast({ html: 'Please enter a message and tech', classes: 'red' });
     } else {
-      console.log(message, tech, attention);
+      const updatedLog = {
+        id: current.id,
+        message,
+        attention,
+        tech,
+        date: new Date()
+      };
+
+      updateLog(updatedLog);
+
+      M.toast({ html: `Log updated by: ${tech}`, classes: `green` });
 
       // clear fields
       setMessage('');
@@ -28,9 +49,6 @@ const EditLogModal = () => {
         <div className='row'>
           <div className='input-field'>
             <input type='text' name='message' value={message} onChange={e => setMessage(e.target.value)} />
-            <label htmlFor='message' className='active'>
-              Log Message
-            </label>
           </div>
         </div>
 
@@ -74,4 +92,17 @@ const EditLogModal = () => {
   );
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+  current: PropTypes.object,
+  updateLog: PropTypes.func.isRequired
+};
+
+const mapStateToProps = ({ log: { current } }) => ({
+  current
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateLog: log => dispatch(updateLog(log))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditLogModal);
